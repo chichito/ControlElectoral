@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/loader_component.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -43,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           _showLoader
-              ? LoaderComponent(text: 'Por favor espere...')
+              ? const LoaderComponent(text: 'Por favor espere...')
               : Container(),
         ],
       ),
@@ -138,7 +140,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _showLoginButton() {
     return Expanded(
       child: ElevatedButton(
-        child: const Text('Iniciar Sesión'),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
@@ -146,6 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }),
         ),
         onPressed: () => _login(),
+        child: const Text('Iniciar Sesión'),
       ),
     );
   }
